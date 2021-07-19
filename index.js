@@ -1,30 +1,27 @@
 function distanceFromHqInBlocks(street){
-    let blocks = Math.abs(street - 42)
-    return blocks;
+    return Math.abs(street - 42)
 }
 
-function distanceFromHqInFeet(blocks){
-    let feet = Math.abs(blocks - 42) * 264
-    return feet;
+function distanceFromHqInFeet(street){
+    return distanceFromHqInBlocks(street) * 264
 }
 
 function distanceTravelledInFeet(start, end){
-    let distance = Math.abs(start - end) * 264
-    return distance;
+    return Math.abs(start - end) * 264
 }
 
 function calculatesFarePrice(start, end){
-    let distance = Math.abs(start - end) * 264
+    let distance = distanceTravelledInFeet(start, end);
     if (distance < 400){
-        return 0;
+        return 0
     } 
     else if (distance > 400 && distance < 2000){
-        return (distance - 400) * .02
+        return (distance - 400) * .02;
     }
     else if (distance > 2000 && distance < 2500){
-        return 25
+        return 25;
     }
     else {
-        return "cannot travel that far"
+        return "cannot travel that far";
     }
 }
